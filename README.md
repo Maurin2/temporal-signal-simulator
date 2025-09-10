@@ -1,12 +1,66 @@
-# React + Vite
+# Proyecto React — Guía rápida
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Guía corta para correr el proyecto en **Ubuntu** y **Windows** sin vueltas.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisitos
 
-## Expanding the ESLint configuration
+* **Node.js LTS**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Ubuntu**
+
+```bash
+sudo apt update
+sudo apt install -y nodejs npm
+node -v && npm -v
+```
+
+**Windows**
+
+1. Bajá **Node.js LTS** de [https://nodejs.org/](https://nodejs.org/)
+2. Verificá en PowerShell:
+
+```powershell
+node -v
+npm -v
+```
+
+---
+
+## Instalación y ejecución
+
+Desde la carpeta del proyecto:
+
+```bash
+# instalar dependencias
+npm install
+
+# levantar en desarrollo
+npm run dev      # Vite
+```
+
+> La consola te muestra la URL (ej.: `http://localhost:5173`).
+
+---
+
+## Tips rápidos
+
+* **Dependencias rotas**:
+
+  ```bash
+  rm -rf node_modules package-lock.json
+  npm install
+  ```
+* **Puerto ocupado** (Ubuntu):
+
+  ```bash
+  lsof -ti:5173 | xargs kill -9   # o 3000
+  ```
+
+  **Windows (PowerShell)**:
+
+  ```powershell
+  netstat -ano | findstr :5173
+  taskkill /PID <PID> /F
+  ```
